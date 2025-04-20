@@ -1,37 +1,13 @@
 extends Control
+var sidebar_button_group : ButtonGroup
+@onready var home_button: TagButton = $VBoxContainer/FunctionVBoxContainer/HomeButton
 
-
-
-func _on_setting_button_pressed() -> void:
+func _ready() -> void:
+	sidebar_button_group = home_button.button_group 
+	sidebar_button_group.pressed.connect(_on_button_toggled)
+	
+func _on_button_toggled(button : TagButton):
 	CoreSystem.event_bus.push_event(
 		"sidebar_change",
-		["setting"]
-	)
-
-
-func _on_home_button_pressed() -> void:
-	CoreSystem.event_bus.push_event(
-		"sidebar_change",
-		["home"]
-	)
-
-
-func _on_agent_button_pressed() -> void:
-	CoreSystem.event_bus.push_event(
-		"sidebar_change",
-		["agent"]
-	)
-
-
-func _on_agent_edit_button_pressed() -> void:
-	CoreSystem.event_bus.push_event(
-		"sidebar_change",
-		["agent_edit"]
-	)
-
-
-func _on_mcp_server_button_pressed() -> void:
-	CoreSystem.event_bus.push_event(
-		"sidebar_change",
-		["mcp_server"]
+		[button.tag]
 	)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://byrmgy288yxxm"]
+[gd_scene load_steps=3 format=3 uid="uid://byrmgy288yxxm"]
 
 [ext_resource type="Theme" uid="uid://dg4adlgwt1g27" path="res://themes/bar_theme_expand_window.tres" id="1_v3vuc"]
+[ext_resource type="Texture2D" uid="uid://q2y1kjp76sfk" path="res://IconWidgets/app_icon_transparent_bg.png" id="2_xgnox"]
 
 [node name="HomePage" type="Control"]
 layout_mode = 3
@@ -30,6 +31,15 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_xgnox")
+stretch_mode = 5
+
+[node name="Control3" type="Control" parent="Panel/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
 
 [node name="Label3" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2

@@ -52,4 +52,5 @@ layout_mode = 1
 
 [node name="McpServerSideBar" parent="ViewSwitcher" instance=ExtResource("6_a7myf")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1

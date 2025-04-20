@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c35ksxw5ssllu"]
+[gd_scene load_steps=9 format=3 uid="uid://c35ksxw5ssllu"]
 
 [ext_resource type="Texture2D" uid="uid://binw4vo8x8162" path="res://IconWidgets/home.png" id="1_so7v5"]
 [ext_resource type="Script" uid="uid://dd2esr27a0cqp" path="res://Scripts/SideBar/side_bar.gd" id="1_uni0w"]
+[ext_resource type="ButtonGroup" uid="uid://bsvrdwv6mraqf" path="res://UI/_ButtonGroups/side_bar_button_group.tres" id="2_421u0"]
 [ext_resource type="Texture2D" uid="uid://mnpu8wy4v3d4" path="res://IconWidgets/user.png" id="2_uni0w"]
 [ext_resource type="Texture2D" uid="uid://c0tkwqx3rraof" path="res://IconWidgets/settings.png" id="3_yp1a5"]
+[ext_resource type="Script" uid="uid://wthso82n5a8d" path="res://Class/tag_button.gd" id="4_1kdps"]
 [ext_resource type="Texture2D" uid="uid://uxgv20ci13ea" path="res://IconWidgets/agent_edit.png" id="4_1w0u4"]
 [ext_resource type="Texture2D" uid="uid://d7j32cigrpx3" path="res://IconWidgets/mcp_server.png" id="5_ldqf4"]
 
@@ -36,9 +38,14 @@ layout_mode = 2
 [node name="HomeButton" type="Button" parent="VBoxContainer/FunctionVBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_421u0")
 icon = ExtResource("1_so7v5")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("4_1kdps")
+tag = "home"
+metadata/_custom_type_script = "uid://wthso82n5a8d"
 
 [node name="Control2" type="Control" parent="VBoxContainer/FunctionVBoxContainer"]
 custom_minimum_size = Vector2(0, 25)
@@ -47,9 +54,14 @@ layout_mode = 2
 [node name="AgentButton" type="Button" parent="VBoxContainer/FunctionVBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_421u0")
 icon = ExtResource("2_uni0w")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("4_1kdps")
+tag = "agent"
+metadata/_custom_type_script = "uid://wthso82n5a8d"
 
 [node name="Control3" type="Control" parent="VBoxContainer/FunctionVBoxContainer"]
 custom_minimum_size = Vector2(0, 25)
@@ -58,9 +70,14 @@ layout_mode = 2
 [node name="AgentEditButton" type="Button" parent="VBoxContainer/FunctionVBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_421u0")
 icon = ExtResource("4_1w0u4")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("4_1kdps")
+tag = "agent_edit"
+metadata/_custom_type_script = "uid://wthso82n5a8d"
 
 [node name="Control4" type="Control" parent="VBoxContainer/FunctionVBoxContainer"]
 custom_minimum_size = Vector2(0, 25)
@@ -69,9 +86,14 @@ layout_mode = 2
 [node name="McpServerButton" type="Button" parent="VBoxContainer/FunctionVBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_421u0")
 icon = ExtResource("5_ldqf4")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("4_1kdps")
+tag = "mcp_server"
+metadata/_custom_type_script = "uid://wthso82n5a8d"
 
 [node name="BasicVBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -79,16 +101,15 @@ layout_mode = 2
 [node name="SettingButton" type="Button" parent="VBoxContainer/BasicVBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("2_421u0")
 icon = ExtResource("3_yp1a5")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("4_1kdps")
+tag = "setting"
+metadata/_custom_type_script = "uid://wthso82n5a8d"
 
 [node name="Control2" type="Control" parent="VBoxContainer/BasicVBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-
-[connection signal="pressed" from="VBoxContainer/FunctionVBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/FunctionVBoxContainer/AgentButton" to="." method="_on_agent_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/FunctionVBoxContainer/AgentEditButton" to="." method="_on_agent_edit_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/FunctionVBoxContainer/McpServerButton" to="." method="_on_mcp_server_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/BasicVBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
