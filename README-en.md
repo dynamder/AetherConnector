@@ -21,3 +21,7 @@ Potential future plans:
 - One-click installation for MCP servers
 - Voice synthesis for CyberLife entities
 - Group chat feature - Create chat groups with multiple CyberLife entities for collaborative conversations
+
+
+
+**Important:** The application icons are entirely created using SD1.5.
