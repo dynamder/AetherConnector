@@ -1,0 +1,6 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+Export/
+IconWidgets/app_icon*
+export_presets.cfg

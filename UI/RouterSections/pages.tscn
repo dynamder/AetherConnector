@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5kjfviqekcmo"]
+
+[ext_resource type="Script" uid="uid://vmw65rt0pkca" path="res://Scripts/Main/pages.gd" id="1_gx8qj"]
+[ext_resource type="Script" uid="uid://b0gyol3x8yjtd" path="res://addons/tnowe_extra_controls/elements/view_switcher.gd" id="2_kfv5d"]
+[ext_resource type="PackedScene" uid="uid://byrmgy288yxxm" path="res://UI/tabs/home/home_page.tscn" id="3_gnf41"]
+[ext_resource type="PackedScene" uid="uid://b13ek2beigmup" path="res://UI/tabs/setting/setting_page.tscn" id="4_ci4c7"]
+[ext_resource type="PackedScene" uid="uid://bsyxyc3p8p7ka" path="res://UI/tabs/agent/agent_page.tscn" id="5_ma878"]
+[ext_resource type="PackedScene" uid="uid://8sxklknvpie8" path="res://UI/tabs/agent_edit/agent_edit_page.tscn" id="6_1e5l6"]
+[ext_resource type="PackedScene" uid="uid://dg6sjdry41qx0" path="res://UI/tabs/mcp_servers/mcp_server_page.tscn" id="7_vakeh"]
+
+[node name="Pages" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+script = ExtResource("1_gx8qj")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ViewSwitcher" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_kfv5d")
+metadata/_custom_type_script = "uid://b0gyol3x8yjtd"
+
+[node name="HomePage" parent="ViewSwitcher" instance=ExtResource("3_gnf41")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="SettingPage" parent="ViewSwitcher" instance=ExtResource("4_ci4c7")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="AgentPage" parent="ViewSwitcher" instance=ExtResource("5_ma878")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="AgentEditPage" parent="ViewSwitcher" instance=ExtResource("6_1e5l6")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="McpServerPage" parent="ViewSwitcher" instance=ExtResource("7_vakeh")]
+unique_name_in_owner = true
+layout_mode = 1

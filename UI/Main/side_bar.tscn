@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://c35ksxw5ssllu"]
+
+[ext_resource type="Texture2D" uid="uid://binw4vo8x8162" path="res://IconWidgets/home.png" id="1_so7v5"]
+[ext_resource type="Script" uid="uid://dd2esr27a0cqp" path="res://Scripts/SideBar/side_bar.gd" id="1_uni0w"]
+[ext_resource type="Texture2D" uid="uid://mnpu8wy4v3d4" path="res://IconWidgets/user.png" id="2_uni0w"]
+[ext_resource type="Texture2D" uid="uid://c0tkwqx3rraof" path="res://IconWidgets/settings.png" id="3_yp1a5"]
+[ext_resource type="Texture2D" uid="uid://uxgv20ci13ea" path="res://IconWidgets/agent_edit.png" id="4_1w0u4"]
+[ext_resource type="Texture2D" uid="uid://d7j32cigrpx3" path="res://IconWidgets/mcp_server.png" id="5_ldqf4"]
+
+[node name="SideBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uni0w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FunctionVBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="VBoxContainer/FunctionVBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HomeButton" type="Button" parent="VBoxContainer/FunctionVBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+icon = ExtResource("1_so7v5")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Control2" type="Control" parent="VBoxContainer/FunctionVBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="AgentButton" type="Button" parent="VBoxContainer/FunctionVBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+icon = ExtResource("2_uni0w")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Control3" type="Control" parent="VBoxContainer/FunctionVBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="AgentEditButton" type="Button" parent="VBoxContainer/FunctionVBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+icon = ExtResource("4_1w0u4")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Control4" type="Control" parent="VBoxContainer/FunctionVBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="McpServerButton" type="Button" parent="VBoxContainer/FunctionVBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+icon = ExtResource("5_ldqf4")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BasicVBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SettingButton" type="Button" parent="VBoxContainer/BasicVBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+icon = ExtResource("3_yp1a5")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Control2" type="Control" parent="VBoxContainer/BasicVBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/FunctionVBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/FunctionVBoxContainer/AgentButton" to="." method="_on_agent_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/FunctionVBoxContainer/AgentEditButton" to="." method="_on_agent_edit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/FunctionVBoxContainer/McpServerButton" to="." method="_on_mcp_server_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BasicVBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]

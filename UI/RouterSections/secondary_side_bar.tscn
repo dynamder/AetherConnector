@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cd5idiqqd5iw4"]
+
+[ext_resource type="Script" uid="uid://dm3nj7301ifcl" path="res://Scripts/Main/secondary_side_bar.gd" id="1_p835l"]
+[ext_resource type="Script" uid="uid://b0gyol3x8yjtd" path="res://addons/tnowe_extra_controls/elements/view_switcher.gd" id="2_v6rff"]
+[ext_resource type="PackedScene" uid="uid://bb75ttopjdnth" path="res://UI/tabs/setting/setting_side_bar.tscn" id="3_4b00d"]
+[ext_resource type="PackedScene" uid="uid://pov48mwdimom" path="res://UI/tabs/agent/agent_side_bar.tscn" id="3_p1dqw"]
+[ext_resource type="PackedScene" uid="uid://d1cucsokheirr" path="res://UI/tabs/agent_edit/agent_edit_side_bar.tscn" id="5_ss46h"]
+[ext_resource type="PackedScene" uid="uid://dnywuyaqvgw5p" path="res://UI/tabs/mcp_servers/mcp_server_side_bar.tscn" id="6_a7myf"]
+
+[node name="SecondarySideBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_p835l")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ViewSwitcher" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_v6rff")
+metadata/_custom_type_script = "uid://b0gyol3x8yjtd"
+
+[node name="AgentSideBar" parent="ViewSwitcher" instance=ExtResource("3_p1dqw")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="SettingSideBar" parent="ViewSwitcher" instance=ExtResource("3_4b00d")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="AgentEditSideBar" parent="ViewSwitcher" instance=ExtResource("5_ss46h")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="McpServerSideBar" parent="ViewSwitcher" instance=ExtResource("6_a7myf")]
+unique_name_in_owner = true
+layout_mode = 1

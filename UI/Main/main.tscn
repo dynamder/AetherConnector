@@ -1,0 +1,228 @@
+[gd_scene load_steps=19 format=3 uid="uid://cds546dh3tulv"]
+
+[ext_resource type="Script" uid="uid://h0rrbh7iu6h0" path="res://Scripts/Main/main.gd" id="1_eto42"]
+[ext_resource type="Script" uid="uid://yg4jo84qkwdk" path="res://Scripts/Main/window_tool_border_manage.gd" id="2_4u3qm"]
+[ext_resource type="Texture2D" uid="uid://cw8te7chqkc5y" path="res://IconWidgets/minimize.png" id="2_6sydh"]
+[ext_resource type="Texture2D" uid="uid://5rb8k3a8jj4f" path="res://IconWidgets/close.png" id="2_dyfb5"]
+[ext_resource type="StyleBox" uid="uid://ccdp417i811tm" path="res://themes/window_border/window_border_style_box.tres" id="2_lp0kv"]
+[ext_resource type="Texture2D" uid="uid://dtl28228a8525" path="res://IconWidgets/maximize.png" id="3_eto42"]
+[ext_resource type="Script" uid="uid://bfrwl2cf6yihg" path="res://Scripts/Main/min_max_switcher.gd" id="3_w5mr6"]
+[ext_resource type="Texture2D" uid="uid://daj88abrpbffs" path="res://IconWidgets/restore.png" id="5_4u3qm"]
+[ext_resource type="Theme" uid="uid://dnufruo8dqwo3" path="res://themes/winborder_widget.tres" id="5_kue5s"]
+[ext_resource type="Theme" uid="uid://dfnawgp04ggh8" path="res://themes/corner_winborder_widget.tres" id="7_b3pbj"]
+[ext_resource type="Script" uid="uid://cw2av75l6t4tf" path="res://Scripts/Main/router.gd" id="9_fmhtc"]
+[ext_resource type="PackedScene" uid="uid://c35ksxw5ssllu" path="res://UI/Main/side_bar.tscn" id="9_ih1d4"]
+[ext_resource type="Theme" uid="uid://dhhskwhjb7bmm" path="res://themes/bar_theme.tres" id="9_nkf2w"]
+[ext_resource type="PackedScene" uid="uid://cd5idiqqd5iw4" path="res://UI/RouterSections/secondary_side_bar.tscn" id="10_p2g6k"]
+[ext_resource type="PackedScene" uid="uid://b5kjfviqekcmo" path="res://UI/RouterSections/pages.tscn" id="11_a2b50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3pbj"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkf2w"]
+bg_color = Color(0.73, 0.63802, 0.5986, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kue5s"]
+bg_color = Color(0.890196, 0.890196, 0.890196, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eto42")
+
+[node name="BorderPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("2_lp0kv")
+
+[node name="MarginContainer" type="MarginContainer" parent="BorderPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="Background" type="Panel" parent="BorderPanel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b3pbj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BorderPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 0
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="WindowToolHBoxContainer" type="HBoxContainer" parent="BorderPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+script = ExtResource("2_4u3qm")
+
+[node name="EmptyTitleBar" type="Control" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 1
+
+[node name="MinimizeButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_kue5s")
+icon = ExtResource("2_6sydh")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ViewSwitcher" type="Control" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_w5mr6")
+metadata/_custom_type_script = "uid://b0gyol3x8yjtd"
+
+[node name="MaximizeButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_kue5s")
+icon = ExtResource("3_eto42")
+icon_alignment = 1
+expand_icon = true
+
+[node name="RestoreButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_kue5s")
+icon = ExtResource("5_4u3qm")
+icon_alignment = 1
+expand_icon = true
+
+[node name="CloseButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("7_b3pbj")
+icon = ExtResource("2_dyfb5")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MainContentHBoxContainer" type="HBoxContainer" parent="BorderPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="SideBar" parent="BorderPanel/MarginContainer/VBoxContainer/MainContentHBoxContainer" instance=ExtResource("9_ih1d4")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DelimLine" type="Panel" parent="BorderPanel/MarginContainer/VBoxContainer/MainContentHBoxContainer"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nkf2w")
+
+[node name="Control" type="Control" parent="BorderPanel/MarginContainer/VBoxContainer/MainContentHBoxContainer"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="Router" type="Control" parent="BorderPanel/MarginContainer/VBoxContainer/MainContentHBoxContainer" node_paths=PackedStringArray("secondary_side_bar", "pages")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+script = ExtResource("9_fmhtc")
+secondary_side_bar = NodePath("HBoxContainer/SecondarySideBarPanel/SecondarySideBar")
+pages = NodePath("HBoxContainer/PagesPanel/Pages")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BorderPanel/MarginContainer/VBoxContainer/MainContentHBoxContainer/Router"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="SecondarySideBarPanel" type="Panel" parent="BorderPanel/MarginContainer/VBoxContainer/MainContentHBoxContainer/Router/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("9_nkf2w")
+
+[node name="SecondarySideBar" parent="BorderPanel/MarginContainer/VBoxContainer/MainContentHBoxContainer/Router/HBoxContainer/SecondarySideBarPanel" instance=ExtResource("10_p2g6k")]
+layout_mode = 1
+
+[node name="PagesPanel" type="Panel" parent="BorderPanel/MarginContainer/VBoxContainer/MainContentHBoxContainer/Router/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kue5s")
+
+[node name="Pages" parent="BorderPanel/MarginContainer/VBoxContainer/MainContentHBoxContainer/Router/HBoxContainer/PagesPanel" instance=ExtResource("11_a2b50")]
+layout_mode = 1
+
+[connection signal="focus_entered" from="BorderPanel" to="." method="_on_border_panel_focus_entered"]
+[connection signal="mouse_entered" from="BorderPanel" to="." method="_on_border_panel_mouse_entered"]
+[connection signal="mouse_exited" from="BorderPanel" to="." method="_on_border_panel_mouse_exited"]
+[connection signal="focus_entered" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/EmptyTitleBar" to="." method="_on_empty_title_bar_focus_entered"]
+[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/EmptyTitleBar" to="." method="_on_empty_title_bar_mouse_exited"]
+[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/MinimizeButton" to="." method="_on_minimize_button_mouse_exited"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/MinimizeButton" to="." method="_on_minimize_button_pressed"]
+[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/MaximizeButton" to="." method="_on_maximize_button_mouse_exited"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/MaximizeButton" to="." method="_on_maximize_button_pressed"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/MaximizeButton" to="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher" method="_on_maximize_button_pressed"]
+[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/RestoreButton" to="." method="_on_restore_button_mouse_exited"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/RestoreButton" to="." method="_on_restore_button_pressed"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/RestoreButton" to="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher" method="_on_restore_button_pressed"]
+[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/CloseButton" to="." method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,0 +1,231 @@
+[gd_scene load_steps=13 format=3 uid="uid://cds546dh3tulv"]
+
+[ext_resource type="Script" uid="uid://h0rrbh7iu6h0" path="res://Scripts/Main/main.gd" id="1_eto42"]
+[ext_resource type="Theme" uid="uid://bgd7dh1m8fudy" path="res://default_theme.tres" id="1_vnck2"]
+[ext_resource type="Texture2D" uid="uid://cw8te7chqkc5y" path="res://IconWidgets/minimize.png" id="2_6sydh"]
+[ext_resource type="Texture2D" uid="uid://5rb8k3a8jj4f" path="res://IconWidgets/close.png" id="2_dyfb5"]
+[ext_resource type="Texture2D" uid="uid://c0tkwqx3rraof" path="res://IconWidgets/settings.png" id="2_emhnf"]
+[ext_resource type="Texture2D" uid="uid://binw4vo8x8162" path="res://IconWidgets/home.png" id="2_uw6j2"]
+[ext_resource type="Texture2D" uid="uid://dtl28228a8525" path="res://IconWidgets/maximize.png" id="3_eto42"]
+[ext_resource type="Texture2D" uid="uid://mnpu8wy4v3d4" path="res://IconWidgets/user.png" id="7_dk31d"]
+[ext_resource type="Script" uid="uid://cw2av75l6t4tf" path="res://Scripts/Main/router.gd" id="9_fmhtc"]
+[ext_resource type="Script" uid="uid://b0gyol3x8yjtd" path="res://addons/tnowe_extra_controls/elements/view_switcher.gd" id="10_a2b50"]
+[ext_resource type="Script" uid="uid://vmw65rt0pkca" path="res://Scripts/Main/pages.gd" id="11_a2b50"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3b2b5"]
+font_size = 28
+shadow_color = Color(0, 0, 0.517647, 0)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eto42")
+
+[node name="MarginContainer" type="MarginContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Main/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Main/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="Main/MarginContainer/VBoxContainer/Panel/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_vnck2")
+text = "Aether Connector"
+label_settings = SubResource("LabelSettings_3b2b5")
+horizontal_alignment = 1
+
+[node name="MinimizeButton" type="Button" parent="Main/MarginContainer/VBoxContainer/Panel/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+icon = ExtResource("2_6sydh")
+flat = true
+expand_icon = true
+
+[node name="EmptyPlaceHolder3" type="Control" parent="Main/MarginContainer/VBoxContainer/Panel/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="MaximizeButton" type="Button" parent="Main/MarginContainer/VBoxContainer/Panel/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+icon = ExtResource("3_eto42")
+flat = true
+expand_icon = true
+
+[node name="EmptyPlaceHolder2" type="Control" parent="Main/MarginContainer/VBoxContainer/Panel/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Main/MarginContainer/VBoxContainer/Panel/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("2_dyfb5")
+flat = true
+expand_icon = true
+
+[node name="EmptyPlaceHolder" type="Control" parent="Main/MarginContainer/VBoxContainer/Panel/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Main/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.72549, 0.556863, 0.482353, 1)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SideBar" type="VBoxContainer" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/SideBar"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EmptyPlaceHolder" type="Control" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/SideBar/VBoxContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+
+[node name="HomeButton" type="Button" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/SideBar/VBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_uw6j2")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="EmptyPlaceHolder2" type="Control" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/SideBar/VBoxContainer"]
+custom_minimum_size = Vector2(60, 10)
+layout_mode = 2
+
+[node name="AgentButton" type="Button" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/SideBar/VBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+icon = ExtResource("7_dk31d")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/SideBar"]
+layout_mode = 2
+
+[node name="SettingButton" type="Button" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/SideBar/VBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/icon = ExtResource("2_emhnf")
+flat = true
+expand_icon = true
+
+[node name="EmptyPlaceHolder" type="Control" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/SideBar/VBoxContainer2"]
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 2
+
+[node name="Router" type="Control" parent="Main/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 15.0
+script = ExtResource("9_fmhtc")
+
+[node name="Panel" type="Panel" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/Router"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/Router/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="SecondarySideBar" type="Control" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/Router/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/Router/Panel/HBoxContainer/SecondarySideBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ViewSwitcher" type="Control" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/Router/Panel/HBoxContainer/SecondarySideBar"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_a2b50")
+metadata/_custom_type_script = "uid://b0gyol3x8yjtd"
+
+[node name="Pages" type="Control" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/Router/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+script = ExtResource("11_a2b50")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Main/MarginContainer/VBoxContainer/HBoxContainer/Router/Panel/HBoxContainer/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Main/MarginContainer/VBoxContainer/HBoxContainer/ColorRect/SideBar/VBoxContainer/HomeButton" to="Main" method="_on_home_button_pressed"]

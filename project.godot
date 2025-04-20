@@ -1,0 +1,63 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="AetherConnector"
+config/description="A godot made modern AI chat GUI, specialized for role playing task"
+run/main_scene="uid://cds546dh3tulv"
+config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 0)
+boot_splash/fullsize=false
+boot_splash/image="uid://no6bgn3tfsys"
+config/icon="uid://no6bgn3tfsys"
+config/windows_native_icon="res://IconWidgets/app_icon.ico"
+
+[autoload]
+
+GuiTransitions="*res://addons/simple-gui-transitions/singleton.gd"
+CoreSystem="*res://addons/godot_core_system/source/core_system.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/borderless=true
+window/size/transparent=true
+window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/per_pixel_transparency/allowed=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ReorderableContainer/plugin.cfg", "res://addons/godot_core_system/plugin.cfg", "res://addons/markdownlabel/plugin.cfg", "res://addons/simple-gui-transitions/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg", "res://addons/yaml/plugin.cfg")
+
+[gui]
+
+theme/custom="uid://bgd7dh1m8fudy"
+
+[gui_transitions]
+
+config/default/auto_start=true
+config/default/fade_layout=true
+config/default/center_pivot=true
+config/default/duration=0.5
+config/default/delay=0.5
+config/default/transition_type="QUAD"
+config/default/ease_type="IN_OUT"
+config/default/animation_enter=4
+config/default/animation_leave=4
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+viewport/transparent_background=true
