@@ -13,7 +13,10 @@ config_version=5
 config/name="AetherConnector"
 config/description="A godot made modern AI chat GUI, specialized for role playing task"
 run/main_scene="uid://cds546dh3tulv"
+config/use_custom_user_dir=true
+config/custom_user_dir_name=".aether"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/low_processor_mode=true
 boot_splash/bg_color=Color(0, 0, 0, 0)
 boot_splash/fullsize=false
 boot_splash/image="uid://no6bgn3tfsys"
@@ -24,6 +27,9 @@ config/windows_native_icon="res://IconWidgets/app_icon.ico"
 
 GuiTransitions="*res://addons/simple-gui-transitions/singleton.gd"
 CoreSystem="*res://addons/godot_core_system/source/core_system.gd"
+AetherConfig="*res://Class/aether_config.gd"
+ConfigDictTemplate="*res://Class/config_dict_template.gd"
+ConfigPath="*res://Class/config_path.gd"
 
 [display]
 
@@ -32,7 +38,6 @@ window/size/viewport_height=1080
 window/size/borderless=true
 window/size/transparent=true
 window/subwindows/embed_subwindows=false
-window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/per_pixel_transparency/allowed=true
 

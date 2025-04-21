@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8f1en1o2b8c"]
+[gd_scene load_steps=3 format=3 uid="uid://c8f1en1o2b8c"]
 
+[ext_resource type="Script" uid="uid://cr8rvxpv7x6cj" path="res://Scripts/Setting/setting_sub_pages/UserProfile/user_profile.gd" id="1_2jdlj"]
 [ext_resource type="SystemFont" uid="uid://dqa6u7pp8pacg" path="res://FontTTF/new_system_font.tres" id="1_ojfxh"]
 
 [node name="UserProfile" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2jdlj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -32,6 +34,10 @@ text = "用户名"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="UserNameTextEdit" type="TextEdit" parent="VBoxContainer"]
+[node name="UserNameTextEdit" type="LineEdit" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "在此编辑用户名"
+caret_blink = true
+
+[connection signal="text_changed" from="VBoxContainer/UserNameTextEdit" to="." method="_on_user_name_text_edit_text_changed"]

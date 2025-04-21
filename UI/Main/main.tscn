@@ -78,32 +78,20 @@ mouse_filter = 0
 theme_override_constants/separation = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="BorderPanel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+[node name="WindowToolHBoxContainer" type="HBoxContainer" parent="BorderPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 4
-
-[node name="WindowToolHBoxContainer" type="HBoxContainer" parent="BorderPanel/MarginContainer/VBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -946.0
-offset_right = 946.0
-offset_bottom = 30.0
-grow_horizontal = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 45
 script = ExtResource("2_4u3qm")
 
-[node name="EmptyTitleBar" type="Control" parent="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer"]
+[node name="EmptyTitleBar" type="Control" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1577, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 1
 
-[node name="MinimizeButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer"]
+[node name="MinimizeButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(90, 30)
 layout_mode = 2
@@ -113,12 +101,12 @@ icon = ExtResource("2_6sydh")
 icon_alignment = 1
 expand_icon = true
 
-[node name="ViewSwitcher" type="Control" parent="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer"]
+[node name="ViewSwitcher" type="Control" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer"]
 layout_mode = 2
 script = ExtResource("3_w5mr6")
 metadata/_custom_type_script = "uid://b0gyol3x8yjtd"
 
-[node name="MaximizeButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/ViewSwitcher"]
+[node name="MaximizeButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(90, 30)
 layout_mode = 1
@@ -138,7 +126,7 @@ icon = ExtResource("3_eto42")
 icon_alignment = 1
 expand_icon = true
 
-[node name="RestoreButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/ViewSwitcher"]
+[node name="RestoreButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(90, 30)
@@ -159,7 +147,7 @@ icon = ExtResource("5_4u3qm")
 icon_alignment = 1
 expand_icon = true
 
-[node name="CloseButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer"]
+[node name="CloseButton" type="Button" parent="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(90, 30)
 layout_mode = 2
@@ -228,15 +216,15 @@ layout_mode = 1
 [connection signal="focus_entered" from="BorderPanel" to="." method="_on_border_panel_focus_entered"]
 [connection signal="mouse_entered" from="BorderPanel" to="." method="_on_border_panel_mouse_entered"]
 [connection signal="mouse_exited" from="BorderPanel" to="." method="_on_border_panel_mouse_exited"]
-[connection signal="focus_entered" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/EmptyTitleBar" to="." method="_on_empty_title_bar_focus_entered"]
-[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/EmptyTitleBar" to="." method="_on_empty_title_bar_mouse_exited"]
-[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/MinimizeButton" to="." method="_on_minimize_button_mouse_exited"]
-[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/MinimizeButton" to="." method="_on_minimize_button_pressed"]
-[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/ViewSwitcher/MaximizeButton" to="." method="_on_maximize_button_mouse_exited"]
-[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/ViewSwitcher/MaximizeButton" to="." method="_on_maximize_button_pressed"]
-[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/ViewSwitcher/MaximizeButton" to="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/ViewSwitcher" method="_on_maximize_button_pressed"]
-[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/ViewSwitcher/RestoreButton" to="." method="_on_restore_button_mouse_exited"]
-[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/ViewSwitcher/RestoreButton" to="." method="_on_restore_button_pressed"]
-[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/ViewSwitcher/RestoreButton" to="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/ViewSwitcher" method="_on_restore_button_pressed"]
-[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/CloseButton" to="." method="_on_close_button_mouse_exited"]
-[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/Control/WindowToolHBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="focus_entered" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/EmptyTitleBar" to="." method="_on_empty_title_bar_focus_entered"]
+[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/EmptyTitleBar" to="." method="_on_empty_title_bar_mouse_exited"]
+[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/MinimizeButton" to="." method="_on_minimize_button_mouse_exited"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/MinimizeButton" to="." method="_on_minimize_button_pressed"]
+[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/MaximizeButton" to="." method="_on_maximize_button_mouse_exited"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/MaximizeButton" to="." method="_on_maximize_button_pressed"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/MaximizeButton" to="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher" method="_on_maximize_button_pressed"]
+[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/RestoreButton" to="." method="_on_restore_button_mouse_exited"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/RestoreButton" to="." method="_on_restore_button_pressed"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher/RestoreButton" to="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/ViewSwitcher" method="_on_restore_button_pressed"]
+[connection signal="mouse_exited" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/CloseButton" to="." method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="BorderPanel/MarginContainer/VBoxContainer/WindowToolHBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://bgd7dh1m8fudy"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://bgd7dh1m8fudy"]
 
 [ext_resource type="FontFile" uid="uid://dd560gdignsef" path="res://FontTTF/SourceHanSansSC-VF.ttf" id="1_mlkpy"]
 [ext_resource type="SystemFont" uid="uid://dqa6u7pp8pacg" path="res://FontTTF/new_system_font.tres" id="2_het5a"]
@@ -33,6 +33,24 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bp0wp"]
 bg_color = Color(0.72, 0.55764, 0.4824, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwjvr"]
+bg_color = Color(0.768627, 0.768627, 0.768627, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3xux"]
+content_margin_left = 20.0
+content_margin_top = 35.0
+content_margin_right = 20.0
+content_margin_bottom = 35.0
+bg_color = Color(0.811765, 0.811765, 0.811765, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j863"]
 bg_color = Color(0.64, 0.52864, 0.4096, 1)
@@ -76,6 +94,14 @@ Label/colors/font_color = Color(0.13, 0.13, 0.13, 1)
 Label/font_sizes/font_size = 30
 Label/fonts/font = ExtResource("1_mlkpy")
 Label/styles/normal = SubResource("StyleBoxFlat_bp0wp")
+LineEdit/colors/caret_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+LineEdit/colors/font_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+LineEdit/colors/font_placeholder_color = Color(0.25098, 0.25098, 0.25098, 0.6)
+LineEdit/constants/caret_width = 3
+LineEdit/font_sizes/font_size = 26
+LineEdit/fonts/font = ExtResource("2_het5a")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_nwjvr")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_r3xux")
 MenuBar/styles/disabled = SubResource("StyleBoxFlat_7j863")
 MenuBar/styles/hover = SubResource("StyleBoxFlat_50bnw")
 MenuBar/styles/normal = SubResource("StyleBoxFlat_cefca")
