@@ -15,8 +15,8 @@ func _init():
 	child_entered_tree.connect(_on_child_entered_tree)
 
 
-func _on_child_entered_tree(child : Node):
-	if (child is CanvasItem):
+func _on_child_entered_tree(child : Node): #modified: add the already connected judgement
+	if (child is CanvasItem) and not child.is_connected("visibility_changed",_on_child_visibility_changed):
 		child.visibility_changed.connect(_on_child_visibility_changed.bind(child));
 
 

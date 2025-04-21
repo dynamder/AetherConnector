@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb75ttopjdnth"]
+[gd_scene load_steps=5 format=3 uid="uid://bb75ttopjdnth"]
 
 [ext_resource type="Script" uid="uid://bdd5hr6mkjm6h" path="res://Scripts/Setting/setting_side_bar.gd" id="1_6r7yi"]
 [ext_resource type="StyleBox" uid="uid://db5q2iqvnt6cp" path="res://themes/sub_panel_flatbox.tres" id="1_pa6ey"]
+[ext_resource type="ButtonGroup" uid="uid://bki2vo4pmahns" path="res://UI/_ButtonGroups/settings/setting_side_bar_button_group.tres" id="3_krhye"]
+[ext_resource type="Script" uid="uid://wthso82n5a8d" path="res://Class/tag_button.gd" id="4_evvps"]
 
 [node name="SettingSideBar" type="Control"]
 layout_mode = 3
@@ -51,7 +53,25 @@ layout_mode = 2
 [node name="UserProfileButton" type="Button" parent="MarginContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("3_krhye")
 text = "用户档案"
+script = ExtResource("4_evvps")
+tag = "user_profile"
+metadata/_custom_type_script = "uid://wthso82n5a8d"
+
+[node name="Control2" type="Control" parent="MarginContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ModelProviderButton" type="Button" parent="MarginContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("3_krhye")
+text = "模型服务"
+script = ExtResource("4_evvps")
+tag = "model_provider"
+metadata/_custom_type_script = "uid://wthso82n5a8d"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/UserProfileButton" to="." method="_on_user_profile_button_pressed"]

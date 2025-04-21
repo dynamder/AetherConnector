@@ -36,6 +36,7 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="HomeButton" type="Button" parent="VBoxContainer/FunctionVBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 toggle_mode = true

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://cq7fu3323b7iu"]
+
+[ext_resource type="Theme" uid="uid://3u08oqhxwjr" path="res://themes/sub_bar_theme.tres" id="1_7x0f2"]
+[ext_resource type="Script" uid="uid://bsxol1ulfkg3w" path="res://Scripts/Setting/setting_sub_pages/model_provider/model_provider.gd" id="1_p16hf"]
+[ext_resource type="PackedScene" uid="uid://m1oqg5fc3exs" path="res://UI/tabs/setting/subpages/model_provider/sub2router/model_provider_side_bar.tscn" id="2_7x0f2"]
+[ext_resource type="PackedScene" uid="uid://8qmvgr3ps2xj" path="res://UI/tabs/setting/subpages/model_provider/sub2router/model_provider_subpage.tscn" id="3_p16hf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdxpb"]
+bg_color = Color(0.890196, 0.890196, 0.890196, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+
+[node name="ModelProviderRouter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p16hf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="SecondarySideBarPanel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(267, 962)
+layout_mode = 2
+theme = ExtResource("1_7x0f2")
+
+[node name="ModelProviderSideBar" parent="HBoxContainer/SecondarySideBarPanel" instance=ExtResource("2_7x0f2")]
+layout_mode = 1
+
+[node name="PagesPanel" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_cdxpb")
+
+[node name="ModelProviderSubpage" parent="HBoxContainer/PagesPanel" instance=ExtResource("3_p16hf")]
+layout_mode = 1
+
+[connection signal="visibility_changed" from="HBoxContainer/PagesPanel/ModelProviderSubpage" to="." method="_on_model_provider_subpage_visibility_changed"]

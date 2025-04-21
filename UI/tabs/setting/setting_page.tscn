@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b13ek2beigmup"]
+[gd_scene load_steps=5 format=3 uid="uid://b13ek2beigmup"]
 
 [ext_resource type="Script" uid="uid://cyt1vu234ljn4" path="res://Scripts/Setting/setting_page.gd" id="1_3y64m"]
 [ext_resource type="Script" uid="uid://b0gyol3x8yjtd" path="res://addons/tnowe_extra_controls/elements/view_switcher.gd" id="1_q86wk"]
-[ext_resource type="PackedScene" uid="uid://c8f1en1o2b8c" path="res://UI/tabs/setting/subpages/user_profile.tscn" id="2_w3050"]
+[ext_resource type="PackedScene" uid="uid://c8f1en1o2b8c" path="res://UI/tabs/setting/subpages/user_profile/user_profile.tscn" id="2_w3050"]
+[ext_resource type="PackedScene" uid="uid://cq7fu3323b7iu" path="res://UI/tabs/setting/subpages/model_provider/model_provider.tscn" id="4_ri875"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -31,4 +32,9 @@ metadata/_custom_type_script = "uid://b0gyol3x8yjtd"
 
 [node name="UserProfile" parent="MarginContainer/ViewSwitcher" instance=ExtResource("2_w3050")]
 unique_name_in_owner = true
+layout_mode = 1
+
+[node name="ModelProvider" parent="MarginContainer/ViewSwitcher" instance=ExtResource("4_ri875")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1

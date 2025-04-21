@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://m1oqg5fc3exs"]
+
+[ext_resource type="StyleBox" uid="uid://db5q2iqvnt6cp" path="res://themes/sub_panel_flatbox.tres" id="1_f0nx8"]
+[ext_resource type="Script" uid="uid://c7mbr2s4phtm5" path="res://Scripts/Setting/setting_sub_pages/model_provider/model_provider_side_bar.gd" id="1_n8nrt"]
+[ext_resource type="Script" uid="uid://wthso82n5a8d" path="res://Class/tag_button.gd" id="1_r3b2k"]
+[ext_resource type="ButtonGroup" uid="uid://cup3fc0tpnrkv" path="res://UI/_ButtonGroups/settings/setting_model_provider_button_group.tres" id="3_5hbsx"]
+
+[node name="ModelProviderSideBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n8nrt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_f0nx8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="SiliconFlow" type="Button" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("3_5hbsx")
+text = "SiliconFlow"
+script = ExtResource("1_r3b2k")
+tag = "siliconflow"
+metadata/_custom_type_script = "uid://wthso82n5a8d"
+
+[node name="Control2" type="Control" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="OpenRouter" type="Button" parent="MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("3_5hbsx")
+text = "OpenRouter"
+script = ExtResource("1_r3b2k")
+tag = "openrouter"
+metadata/_custom_type_script = "uid://wthso82n5a8d"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

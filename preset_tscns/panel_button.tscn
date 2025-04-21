@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlaom8227s4ld"]
+
+[ext_resource type="Script" uid="uid://b244pwo8wgle7" path="res://preset_tscns/panel_button.gd" id="1_iedgj"]
+[ext_resource type="StyleBox" uid="uid://daxfnspncumyf" path="res://themes/sub2_panel_style_box_flat.tres" id="1_kwb43"]
+[ext_resource type="Script" uid="uid://wthso82n5a8d" path="res://Class/tag_button.gd" id="3_my0e5"]
+
+[node name="PanelButton" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iedgj")
+toggle_mode = null
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_kwb43")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="TagButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+toggle_mode = true
+script = ExtResource("3_my0e5")
+metadata/_custom_type_script = "uid://wthso82n5a8d"

@@ -1,6 +1,7 @@
 ##CRITICAL: NO ANDROID SUPPORT
 
 extends Control
+#region main nodes definition
 @onready var router: Control = %Router
 @onready var empty_title_bar: Control = %EmptyTitleBar
 @onready var border_panel: Panel = %BorderPanel
@@ -11,7 +12,7 @@ extends Control
 @onready var close_button: Button = %CloseButton
 
 @onready var background: Panel = %Background
-
+#endregion
 var mouse_border_section : DisplayServer.WindowResizeEdge
 var prepare_resizing : bool = false
 
@@ -19,6 +20,11 @@ var border_stylebox : StyleBoxFlat
 var max_border_stylebox : StyleBoxFlat
 
 func _ready() -> void:
+	_window_init()
+	_router_init()
+	
+#region init
+func _window_init():
 	get_viewport().transparent_bg = true
 	
 	border_stylebox = border_panel.get_theme_stylebox("panel")
@@ -34,14 +40,19 @@ func _ready() -> void:
 		true,
 		0
 	)
+	DisplayServer.window_set_min_size(
+		Vector2i(1920,1080)
+	)
+
+func _router_init():
 	router.secondary_side_bar.visible = false
 	CoreSystem.event_bus.debug_mode = true
 	CoreSystem.event_bus.subscribe(
 		"sidebar_change",
 		router.switch
 	)
-
-
+#endregion
+#region window operation
 var tolerable_margin_x : int = 15
 var tolerable_margin_y : int = 15
 
@@ -78,7 +89,6 @@ func get_cursor_section() -> DisplayServer.WindowResizeEdge:
 	else:
 		return DisplayServer.WINDOW_EDGE_RIGHT
 	
-	prepare_resizing = true
 	
 
 
@@ -172,4 +182,7 @@ func _on_border_panel_focus_entered() -> void:
 	DisplayServer.window_start_resize(
 		mouse_border_section
 	)
-			
+#endregion		
+
+#region config related
+#endregion
