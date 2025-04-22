@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3c52yecyrsvc"]
+
+[ext_resource type="Script" uid="uid://b14ot7t3pe0oc" path="res://Scripts/Setting/setting_sub_pages/model_provider/template/model_provider_setting.gd" id="1_abke8"]
+
+[node name="ModelProviderSetting" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abke8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BaseUrlLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "BaseUrl"
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="BaseUrlLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+editable = false
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ApiKeyLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "API Key"
+
+[node name="ApiKeyLineEdit" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ModelListLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Model List"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ModelListVBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+
+[connection signal="text_submitted" from="VBoxContainer/ApiKeyLineEdit" to="." method="_on_api_key_line_edit_text_submitted"]

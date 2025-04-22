@@ -46,7 +46,6 @@ func _window_init():
 
 func _router_init():
 	router.secondary_side_bar.visible = false
-	CoreSystem.event_bus.debug_mode = true
 	CoreSystem.event_bus.subscribe(
 		"sidebar_change",
 		router.switch

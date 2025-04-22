@@ -30,6 +30,7 @@ CoreSystem="*res://addons/godot_core_system/source/core_system.gd"
 AetherConfig="*res://Class/aether_config.gd"
 ConfigDictTemplate="*res://Class/config_dict_template.gd"
 ConfigPath="*res://Class/config_path.gd"
+ModelProviderHttpTemplate="*res://Class/model_provider_http_template.gd"
 
 [display]
 
@@ -37,7 +38,6 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/borderless=true
 window/size/transparent=true
-window/subwindows/embed_subwindows=false
 window/stretch/aspect="expand"
 window/per_pixel_transparency/allowed=true
 

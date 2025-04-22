@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://8qmvgr3ps2xj"]
+[gd_scene load_steps=4 format=3 uid="uid://8qmvgr3ps2xj"]
 
 [ext_resource type="Script" uid="uid://dmrrk31c614sq" path="res://Scripts/Setting/setting_sub_pages/model_provider/model_provider_subpage.gd" id="1_lnj7d"]
 [ext_resource type="Script" uid="uid://b0gyol3x8yjtd" path="res://addons/tnowe_extra_controls/elements/view_switcher.gd" id="1_stowi"]
-[ext_resource type="PackedScene" uid="uid://da1m7fj6amq3m" path="res://UI/tabs/setting/subpages/model_provider/sub2router/sub2pages/siliconflow.tscn" id="2_lnj7d"]
-[ext_resource type="PackedScene" uid="uid://diblhvrlvvsrd" path="res://UI/tabs/setting/subpages/model_provider/sub2router/sub2pages/openrouter.tscn" id="3_shgd6"]
+[ext_resource type="PackedScene" uid="uid://b3c52yecyrsvc" path="res://UI/tabs/setting/subpages/model_provider/sub2router/sub2pages/template/model_provider_setting.tscn" id="3_stowi"]
 
 [node name="ModelProviderSubpage" type="Control"]
 layout_mode = 3
@@ -14,18 +13,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lnj7d")
 
-[node name="ViewSwitcher" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="ViewSwitcher" type="Control" parent="MarginContainer"]
+layout_mode = 2
 script = ExtResource("1_stowi")
 metadata/_custom_type_script = "uid://b0gyol3x8yjtd"
 
-[node name="Siliconflow" parent="ViewSwitcher" instance=ExtResource("2_lnj7d")]
+[node name="SiliconFlow" parent="MarginContainer/ViewSwitcher" instance=ExtResource("3_stowi")]
 unique_name_in_owner = true
 layout_mode = 1
+provider = "siliconflow"
 
-[node name="Openrouter" parent="ViewSwitcher" instance=ExtResource("3_shgd6")]
+[node name="OpenRouter" parent="MarginContainer/ViewSwitcher" instance=ExtResource("3_stowi")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
+provider = "openrouter"

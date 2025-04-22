@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://du13vx4wm52de"]
+
+[ext_resource type="Script" uid="uid://b0gco1hd8v444" path="res://Scripts/Setting/setting_sub_pages/model_provider/template/model_unit.gd" id="1_8n5cn"]
+
+[node name="ModelUnit" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_8n5cn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 29.0
+offset_bottom = 36.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2

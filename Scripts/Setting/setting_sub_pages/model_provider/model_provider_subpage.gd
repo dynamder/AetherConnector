@@ -1,6 +1,7 @@
 extends Control
-@onready var siliconflow: Control = %Siliconflow
-@onready var openrouter: Control = %Openrouter
+@onready var siliconflow: Control = %SiliconFlow
+@onready var openrouter: Control = %OpenRouter
+
 
 var current_page : String:
 	set(value):
