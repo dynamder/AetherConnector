@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6o6ydak7gxjd"]
+
+[ext_resource type="Script" uid="uid://us04vtka3fm5" path="res://Scripts/Agent/agent_page_popups/change_model.gd" id="1_r5h1i"]
+
+[node name="ChangeModel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r5h1i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="SearchBar" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "查找模型"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[connection signal="text_changed" from="VBoxContainer/SearchBar" to="." method="_on_search_bar_text_changed"]
