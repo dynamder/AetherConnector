@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bb75ttopjdnth"]
 
 [ext_resource type="Script" uid="uid://bdd5hr6mkjm6h" path="res://Scripts/Setting/setting_side_bar.gd" id="1_6r7yi"]
-[ext_resource type="StyleBox" uid="uid://i6rw6ia2eehi" path="res://themes/chat_bubble.tres" id="2_krhye"]
+[ext_resource type="StyleBox" uid="uid://i6rw6ia2eehi" path="res://themes/chat_bubble_user.tres" id="2_krhye"]
 [ext_resource type="ButtonGroup" uid="uid://bki2vo4pmahns" path="res://UI/_ButtonGroups/settings/setting_side_bar_button_group.tres" id="3_krhye"]
 [ext_resource type="Script" uid="uid://wthso82n5a8d" path="res://Class/tag_button.gd" id="4_evvps"]
 

@@ -26,6 +26,7 @@ func _ready() -> void:
 #region init
 func _window_init():
 	get_viewport().transparent_bg = true
+	AetherConfig.window_size = DisplayServer.window_get_size()
 	
 	border_stylebox = border_panel.get_theme_stylebox("panel")
 	
@@ -106,6 +107,7 @@ func _on_maximize_button_pressed() -> void:
 		DisplayServer.WINDOW_MODE_MAXIMIZED
 	)
 	maximize_button.release_focus()
+	AetherConfig.window_size = DisplayServer.window_get_size()
 	
 	border_panel.add_theme_stylebox_override(
 		"panel",
@@ -124,7 +126,7 @@ func _on_restore_button_pressed() -> void:
 		Vector2i(1920,1080)
 	)
 	restore_button.release_focus()
-	
+	AetherConfig.window_size = DisplayServer.window_get_size()
 	border_panel.add_theme_stylebox_override(
 		"panel",
 		border_stylebox

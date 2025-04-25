@@ -1,5 +1,5 @@
 extends MarginContainer
-@onready var user_name: Label = %UserName
+@onready var agent_name: Label = %AgentName
 @onready var markdown_content: MarkdownLabel = %MarkdownContent
 @onready var texture_rect: TextureRect = %TextureRect
 @onready var v_box_container: VBoxContainer = %VBoxContainer
@@ -8,8 +8,7 @@ var bubble_factor : float = 2.0 / 3.0
 var max_threshold : int = 1270 * 2 / 3
 
 func _ready() -> void:
-	user_name.text = AetherConfig.user_profile.user_name
-	
+	agent_name.text = "test agent"
 
 ##RichTextLabel Bug, manually adjust the label size
 func _on_markdown_content_finished() -> void:

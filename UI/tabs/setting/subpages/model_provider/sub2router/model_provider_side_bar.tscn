@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7mbr2s4phtm5" path="res://Scripts/Setting/setting_sub_pages/model_provider/model_provider_side_bar.gd" id="1_n8nrt"]
 [ext_resource type="Script" uid="uid://wthso82n5a8d" path="res://Class/tag_button.gd" id="1_r3b2k"]
-[ext_resource type="StyleBox" uid="uid://i6rw6ia2eehi" path="res://themes/chat_bubble.tres" id="2_5hbsx"]
+[ext_resource type="StyleBox" uid="uid://i6rw6ia2eehi" path="res://themes/chat_bubble_user.tres" id="2_5hbsx"]
 [ext_resource type="ButtonGroup" uid="uid://cup3fc0tpnrkv" path="res://UI/_ButtonGroups/settings/setting_model_provider_button_group.tres" id="3_5hbsx"]
 
 [node name="ModelProviderSideBar" type="Control"]

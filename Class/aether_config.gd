@@ -7,6 +7,10 @@ var model_list_http : HTTPRequest
 
 var model_list_db : SQLite
 
+#region window size variable
+var window_size : Vector2i
+#endregion
+
 func _ready() -> void:
 	load_user_profile()
 	load_model_list_db()
