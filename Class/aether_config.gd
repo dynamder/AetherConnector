@@ -50,6 +50,7 @@ func load_model_provider_settings():
 #region http request for model list
 ##a bit nasty hack
 var requested_data : Dictionary
+var http_response_code : int
 
 func request_model_list(provider : String):
 	
@@ -68,20 +69,22 @@ func request_model_list(provider : String):
 				[ModelProviderHttpTemplate.header.siliconflow % api_key]
 			)
 			await http_request_complete
-			for item in requested_data.data:
-				inserting_rows.append(
-					{"uid": "siliconflow/"+item.id,"provider": "siliconflow", "model_id": item.id}
-				)
+			if http_response_code == 200:
+				for item in requested_data.data:
+					inserting_rows.append(
+						{"uid": "siliconflow/"+item.id,"provider": "siliconflow", "model_id": item.id}
+					)
 			
 		"openrouter":
 			model_list_http.request(
 				ModelProviderHttpTemplate.request_url.openrouter
 			)
 			await http_request_complete
-			for item in requested_data.data:
-				inserting_rows.append(
-					{"uid": "openrouter/"+item.id,"provider": "openrouter", "model_id": item.id}
-				)
+			if http_response_code == 200:
+				for item in requested_data.data:
+					inserting_rows.append(
+						{"uid": "openrouter/"+item.id,"provider": "openrouter", "model_id": item.id}
+					)
 		_:
 			return
 	
@@ -96,6 +99,7 @@ func _on_http_request_complete(result, response_code, headers, body):
 		requested_data = JSON.parse_string(
 			body.get_string_from_utf8()
 		)
+	http_response_code = response_code
 	http_request_complete.emit(response_code)
 
 #endregion

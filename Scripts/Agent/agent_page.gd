@@ -3,8 +3,13 @@ extends Control
 @onready var change_model_button: TagButton = %ChangeModelButton
 @onready var change_model: Control = %ChangeModel
 @onready var panel_container: PanelContainer = $MarginContainer/PanelContainer
+@onready var submit_button: TagButton = %SubmitButton
+@onready var text_edit: TextEdit = %TextEdit
+@onready var messages_container: VBoxContainer = %MessagesContainer
 
 var bottom_button_group : ButtonGroup
+
+var chat_bubble_user : PackedScene = preload("res://UI/tabs/agent/agent_page_chat/chat_bubble_user.tscn")
 
 func _ready() -> void:
 	bottom_button_group = new_chat_button.button_group
@@ -16,7 +21,9 @@ func _ready() -> void:
 	
 
 func _on_bottom_button_toggled(button : TagButton):
-	button.set_pressed_no_signal(false)
+	button.button_pressed = false
+	button.toggled.emit(false)
+	button.release_focus()
 	subwindow_pop_up(button.tag)
 	
 func subwindow_pop_up(tag : String):
@@ -24,7 +31,30 @@ func subwindow_pop_up(tag : String):
 	match tag:
 		"change_model":
 			change_model.visible = true
+		"new_chat":
+			pass #TODO
 
 func _on_pop_up_window_end():
 	panel_container.visible = false
+	
+
+
+func _on_submit_button_pressed() -> void:
+	submit_button.release_focus()
+	if text_edit.text == "":
+		return
+	CoreSystem.event_bus.push_event(
+		"user_message",
+		[text_edit.text]
+	)
+	post_user_message(text_edit.text)
+	text_edit.clear()
+
+func post_user_message(message : String):
+	var user_message_bubble := chat_bubble_user.instantiate()
+	messages_container.add_child(user_message_bubble)
+	user_message_bubble.markdown_content.markdown_text = text_edit.text
+	var spacer = messages_container.add_spacer(false)
+	spacer.custom_minimum_size = Vector2(0,20)
+	spacer.size_flags_vertical = Control.SIZE_SHRINK_END
 	

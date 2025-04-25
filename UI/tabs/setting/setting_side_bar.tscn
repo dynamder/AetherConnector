@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bb75ttopjdnth"]
 
 [ext_resource type="Script" uid="uid://bdd5hr6mkjm6h" path="res://Scripts/Setting/setting_side_bar.gd" id="1_6r7yi"]
-[ext_resource type="StyleBox" uid="uid://db5q2iqvnt6cp" path="res://themes/sub_panel_flatbox.tres" id="1_pa6ey"]
+[ext_resource type="StyleBox" uid="uid://i6rw6ia2eehi" path="res://themes/chat_bubble.tres" id="2_krhye"]
 [ext_resource type="ButtonGroup" uid="uid://bki2vo4pmahns" path="res://UI/_ButtonGroups/settings/setting_side_bar_button_group.tres" id="3_krhye"]
 [ext_resource type="Script" uid="uid://wthso82n5a8d" path="res://Class/tag_button.gd" id="4_evvps"]
 
@@ -28,7 +28,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="Panel" type="Panel" parent="MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("1_pa6ey")
+theme_override_styles/panel = ExtResource("2_krhye")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
 layout_mode = 1

@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsyxyc3p8p7ka"]
+[gd_scene load_steps=13 format=3 uid="uid://bsyxyc3p8p7ka"]
 
 [ext_resource type="Script" uid="uid://cogfbs5gfjaex" path="res://Scripts/Agent/agent_page.gd" id="1_6gf27"]
 [ext_resource type="Texture2D" uid="uid://cr6jpu5y5v2p" path="res://IconWidgets/new_chat.png" id="1_7vyhr"]
 [ext_resource type="Script" uid="uid://wthso82n5a8d" path="res://Class/tag_button.gd" id="2_4hstn"]
+[ext_resource type="Script" uid="uid://mhdvr67574ly" path="res://Scripts/Agent/text_prompt_edit.gd" id="2_dra86"]
 [ext_resource type="ButtonGroup" uid="uid://2wtdqdrpsj4x" path="res://UI/_ButtonGroups/agent/agent_page_bottom_button.tres" id="2_x18m6"]
 [ext_resource type="Script" uid="uid://dywj1au8jbjhl" path="res://Scripts/Agent/bottom_button/new_chat_button.gd" id="4_w5g20"]
-[ext_resource type="StyleBox" uid="uid://db5q2iqvnt6cp" path="res://themes/sub_panel_flatbox.tres" id="6_w5g20"]
+[ext_resource type="Texture2D" uid="uid://7alj4muuqnew" path="res://IconWidgets/submit.png" id="6_5ex2n"]
+[ext_resource type="StyleBox" uid="uid://bsflnhgnmds4w" path="res://themes/sub2_panel_style_box_flat_transparent.tres" id="6_6yexj"]
+[ext_resource type="Script" uid="uid://dgnahs6ywceh3" path="res://Scripts/Agent/agent_page_popups/sub_page_auto_close_unfocused.gd" id="7_j11jf"]
 [ext_resource type="Script" uid="uid://b0gyol3x8yjtd" path="res://addons/tnowe_extra_controls/elements/view_switcher.gd" id="7_px1ok"]
 [ext_resource type="PackedScene" uid="uid://c6o6ydak7gxjd" path="res://UI/tabs/agent/agent_page_popups/change_model.tscn" id="8_px1ok"]
+[ext_resource type="StyleBox" uid="uid://db5q2iqvnt6cp" path="res://themes/sub_panel_flatbox.tres" id="9_5ex2n"]
 
 [node name="AgentPage" type="Control"]
 layout_mode = 3
@@ -34,18 +38,35 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="MarginContainer/ChatAndText"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ChatAndText"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
+size_flags_stretch_ratio = 3.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ChatAndText/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MessagesContainer" type="VBoxContainer" parent="MarginContainer/ChatAndText/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
 
 [node name="TextEdit" type="TextEdit" parent="MarginContainer/ChatAndText"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "请在此处编辑以太信息"
 wrap_mode = 1
 indent_wrapped_lines = true
 caret_blink = true
+script = ExtResource("2_dra86")
 
 [node name="BottomButton" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -66,7 +87,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BottomButton/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_constants/separation = 20
 
 [node name="NewChatButton" type="Button" parent="MarginContainer/BottomButton/MarginContainer/HBoxContainer"]
@@ -91,23 +111,51 @@ script = ExtResource("2_4hstn")
 tag = "change_model"
 metadata/_custom_type_script = "uid://wthso82n5a8d"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/BottomButton/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="SubmitButton" type="Button" parent="MarginContainer/BottomButton/MarginContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+icon = ExtResource("6_5ex2n")
+expand_icon = true
+script = ExtResource("2_4hstn")
+metadata/_custom_type_script = "uid://wthso82n5a8d"
+
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 visible = false
 layout_mode = 2
-theme_override_styles/panel = ExtResource("6_w5g20")
+theme_override_styles/panel = ExtResource("6_6yexj")
+script = ExtResource("7_j11jf")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("9_5ex2n")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ViewSwitcher" type="Control" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="ViewSwitcher" type="Control" parent="MarginContainer/PanelContainer/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 script = ExtResource("7_px1ok")
 metadata/_custom_type_script = "uid://b0gyol3x8yjtd"
 
-[node name="ChangeModel" parent="MarginContainer/PanelContainer/MarginContainer/ViewSwitcher" instance=ExtResource("8_px1ok")]
+[node name="ChangeModel" parent="MarginContainer/PanelContainer/MarginContainer/PanelContainer/MarginContainer/ViewSwitcher" instance=ExtResource("8_px1ok")]
 unique_name_in_owner = true
 layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer/BottomButton/MarginContainer/HBoxContainer2/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="gui_input" from="MarginContainer/PanelContainer" to="MarginContainer/PanelContainer" method="_on_gui_input"]
