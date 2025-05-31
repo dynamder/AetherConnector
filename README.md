@@ -1,10 +1,8 @@
 # AetherConnector
 
+[ENGLISH](./README-en.md) [简体中文](./README.md)
+
 一个模拟社交媒体交互体验的AI聊天程序，专注于生成拟人化的角色扮演对话
-
-
-
-
 
 ## 声明 Notice
 

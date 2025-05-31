@@ -1,5 +1,7 @@
 # AetherConnector
 
+[ENGLISH](./README-en.md) [简体中文](./README.md)
+
 An AI chat application simulating social media interaction experience, specializing in generating human-like role-playing conversations.
 
 ## Notice
