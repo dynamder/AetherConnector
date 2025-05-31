@@ -1,5 +1,5 @@
-# Godot 4+ specific ignores
-.godot/
-/android/
-Export/
-ClineTest/
+/dist/
+/target/
+rust-toolchain.toml
+/.idea
+/.vscode

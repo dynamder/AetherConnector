@@ -1,0 +1,344 @@
+.logo.leptos:hover {
+  filter: drop-shadow(0 0 2em #a82e20);
+}
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  width: 100%;
+  height: 100%;
+  background-color: #e8e8e8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  background-color: transparent !important;
+}
+
+.container {
+  margin: 0;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: 0.75s;
+}
+
+.logo.tauri:hover {
+  filter: drop-shadow(0 0 2em #24c8db);
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* 基础样式 */
+button, input {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #0f0f0f;
+  background-color: #ffffff;
+  transition: border-color 0.25s;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* 主题色按钮 */
+.primary-button {
+  background-color: #E8B298 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.primary-button:hover {
+  background-color: #DBA589 !important;
+}
+
+/* 聊天页面布局 */
+.chat-page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-container {
+  height: calc(100vh - 160px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.messages-scroll-container {
+  flex: 1;
+  width: 80%;
+  max-width: 1200px;
+  min-width: 320px;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.chat-messages {
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+/* 聊天气泡 */
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  margin: 8px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-message {
+  margin-left: auto;
+  background-color: #E8B298;
+  color: white;
+  border-radius: 12px 12px 2px 12px;
+}
+
+.ai-message {
+  margin-right: auto;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 12px 12px 12px 2px;
+}
+
+/* 输入区域 */
+.input-container {
+  height: 160px;
+  width: 100%;
+  background: #e8e8e8;
+  padding-top: 20px;
+  flex-shrink: 0;
+}
+
+.input-container > div {
+  width: 80%;
+  max-width: 1200px;
+  min-width: 320px;
+  margin: 0 auto;
+  position: relative;
+  background: #e8e8e8;
+  padding: 20px;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-input-box {
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: white;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+  min-height: 60px;
+  max-height: 200px;
+  resize: vertical;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+}
+
+.user-input-box:focus {
+  border-color: #E8B298;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(232, 178, 152, 0.2);
+}
+
+.user-input-box::placeholder {
+  color: #999;
+}
+
+.submit-button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 16px !important;
+  padding: 6px 16px !important;
+  font-size: 14px !important;
+  z-index: 10;
+}
+
+/* 返回按钮 */
+.chat-header {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  z-index: 10;
+}
+
+.return-button {
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background-color: #f5f5f5 !important;
+  color: #666 !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.return-button:hover {
+  color: #333 !important;
+  background-color: #e8e8e8 !important;
+  transform: scale(1.05);
+}
+
+/* 滚动条样式 */
+.chat-messages::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: #E8B298;
+  border-radius: 10px;
+  min-height: 40px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #DBA589;
+}
+
+/* 欢迎页面 */
+.main-page {
+  color: #0f0f0f;
+  background-color: transparent;
+  text-align: center;
+  font-family: Verdana, sans-serif;
+  font-size: 25px;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 调整主页内的 Flex 容器 */
+.main-page > div {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 调整图片容器 */
+.main-page img {
+  max-width: 40%;
+  height: auto;
+  min-width: 200px;
+  max-height: 40vh;
+  object-fit: contain;
+}
+
+/* 响应式调整 */
+@media screen and (max-height: 600px) {
+  .main-page {
+    font-size: 20px;
+    padding: 10px;
+  }
+  
+  .main-page img {
+    max-height: 30vh;
+  }
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f6f6f6;
+    background-color: #2f2f2f;
+  }
+
+  a:hover {
+    color: #24c8db;
+  }
+
+  button, input {
+    color: #ffffff;
+    background-color: #0f0f0f98;
+  }
+  button:active {
+    background-color: #0f0f0f69;
+  }
+}
+
+/* 添加响应式布局 */
+@media screen and (max-width: 768px) {
+  .messages-scroll-container,
+  .input-container > div {
+    width: 95%;
+  }
+}

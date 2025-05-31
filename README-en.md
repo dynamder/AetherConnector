@@ -1,27 +1,26 @@
-# AetherConnector 
+# AetherConnector
 
-An AI agent interface built with Godot, specially designed for role-playing tasks, with MCP support for advanced functionalities.
+An AI chat application simulating social media interaction experience, specializing in generating human-like role-playing conversations.
 
----
+## Notice
 
-Currently in early stages of development. The first usable demo will include:
+- This project **does not plan to integrate** with APIs of any operational third-party social platforms (e.g. WeChat, QQ, Discord).
+- AetherConnector **is not designed as** an Agent with expert-level task execution capabilities. Its core focus is **fluent, human-like conversational interaction**, not providing:
+  - Precise research analysis
+  - Complex code generation
+  - Automated workflow execution
 
-- Basic conversations with large language models
-- MCP server support
-- Creation and editing of AI agents (referred to as CyberLife entities)
-- Chinese and English language support
+- Special Thanks
+  - https://github.com/MaiM-with-u/MaiBot
+    - Provided design inspiration (and bolstered our development confidence ❥)
 
----
 
-Potential future plans:
 
-- Safer MCP management (permissions, etc.)
-- Basic prompt templates for CyberLife entities
-- Visual representations of CyberLife characters with dynamic reactions during conversations
-- One-click installation for MCP servers
+## Potential Future Development Plans:
+
+- Basic prompt templates for CyberLife characters
+- Character avatar display with dynamic responses based on conversation context
 - Voice synthesis for CyberLife entities
-- Group chat feature - Create chat groups with multiple CyberLife entities for collaborative conversations
+- "Group Chat" feature: Creating multi-participant chats with CyberLife characters
 
-
-
-**Important:** The application icons are entirely created using SD1.5.
+**Important:** The application icon was entirely generated using Stable Diffusion 1.5.
